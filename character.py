@@ -2,15 +2,16 @@
 import random
 
 
-ability_score = [15, 14, 13, 12, 10, 8]
-
 def calc_modifier(score):
     return int((score - 10)/2)
 
 class Character:
-    def __init__(self, name):
-        init_scores = random.sample(ability_score, len(ability_score))
+    ability_score = [15, 14, 13, 12, 10, 8]
 
+    def __init__(self, name, character_class):
+        init_scores = random.sample(self.ability_score, len(self.ability_score))
+
+        self.character_class = character_class
         self.name = name
         self.strength = init_scores[0]
         self.strength_modifier = calc_modifier(self.strength)
@@ -26,7 +27,7 @@ class Character:
         self.intelligence_modifier = calc_modifier(self.intelligence)
     
     def whoami(self):
-        print("Hi, I'm {}".format(self.name))
+        print("Hi, I'm {} and my class is {}".format(self.name, self.character_class))
         print("\tStrength:{}".format(self.strength))
         print("\tstrengh_modifier:{}".format(self.strength_modifier))
         print("\tDexterity:{}".format(self.dexterity))
@@ -39,3 +40,5 @@ class Character:
         print("\tcharisma_modifier:{}".format(self.charisma_modifier))
         print("\tIntelligence:{}".format(self.intelligence))
         print("\tintelligence_modifier:{}".format(self.intelligence_modifier))
+        
+
