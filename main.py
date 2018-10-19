@@ -6,7 +6,33 @@ import elf
 import halfling
 import human
 import dragonborn
+import gnome
+import halfelf
+import halforc
+import tiefling
 
+classes = ["Barbarian", 
+           "Bard",
+           "Cleric",
+           "Druid",
+           "Fighter",
+           "Monk",
+           "Paladin",
+           "Ranger",
+           "Rogue",
+           "Sorcerer",
+           "Warlock",
+           "Wizard"]
+
+races = ["Dwarf",
+         "Elf",
+         "Halfling",
+         "Human",
+         "Dragonborn",
+         "Gnome",
+         "Half-Elf",
+         "Half-Orc",
+         "Tiefling"]
 
 '''
 barbarian_weights = 
@@ -23,22 +49,27 @@ warlock_weights =
 wizard_weights = 
 '''
 if __name__ == "__main__":
-#    character_race = random.choice(races)
+    character_race = random.choice(races)
 #    character_class = random.choice(classes)  
-    test = character.Character("Kelly")
-    test.whoami()
 
-    dwarf = dwarf.Dwarf("Bruenor")
-    dwarf.whoami()
+    print("character_race: {}".format(character_race))
+    if character_race is 'Dwarf':
+        character = dwarf.Dwarf("Bruenor", character_race)
+    elif character_race is 'Elf':    
+        character = elf.Elf("Jakarta", character_race)
+    elif character_race is 'Halfling':
+        character = halfling.Halfling("Mags", character_race)
+    elif character_race is 'Human':
+        character = human.Human("Colin", character_race)
+    elif character_race is 'Dragonborn':
+        character = dragonborn.Dragonborn("John", character_race)
+    elif character_race is 'Gnome':
+        character = gnome.Gnome("Frodo", character_race)
+    elif character_race is 'Half-Elf':
+        character = halfelf.HalfElf("Zachary", character_race)
+    elif character_race is 'Half-Orc':
+        character = halforc.HalfOrc("Randy", character_race)
+    elif character_race is 'Tiefling':
+        character = tiefling.Tiefling("Inrissa", character_race)
 
-    elf = elf.Elf("Jakarta")
-    elf.whoami()
-
-    halfling = halfling.Halfling("Mags")
-    halfling.whoami()
-
-    human = human.Human("Colin")
-    human.whoami()
-
-    dragonborn = dragonborn.Dragonborn("John")
-    dragonborn.whoami()
+    character.whoami()

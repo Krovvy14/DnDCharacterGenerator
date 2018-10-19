@@ -2,8 +2,8 @@ import character
 import random
 
 class Dwarf(character.Character):
-    def __init__(self, name):
-        super().__init__(name)
+    def __init__(self, name, race):
+        super().__init__(name, race)
         self.constitution = self.constitution + 2
         self.constitution_modifier = character.calc_modifier(self.constitution)
         self.speed = 25

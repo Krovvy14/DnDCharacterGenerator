@@ -30,7 +30,7 @@ class Character:
              "Half-Orc",
              "Tiefling"]
 
-    def __init__(self, name):
+    def __init__(self, name, race):
         '''
         //////
         //Character Archetype
@@ -60,7 +60,7 @@ class Character:
                                     len(self.ability_score))
         self.name = name
         self.character_class = random.choice(Character.classes) 
-        self.race = random.choice(Character.races)
+        self.race = race
         self.alignment = random.choice(Character.alignments) 
         self.strength = init_scores[0]
         self.strength_modifier = calc_modifier(self.strength)

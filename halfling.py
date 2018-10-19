@@ -2,8 +2,8 @@ import character
 
 class Halfling(character.Character):
 
-    def __init__(self, name):
-        super().__init__(name)
+    def __init__(self, name, race):
+        super().__init__(name, race)
         self.dexterity = self.dexterity + 2
         self.dexterity_modifier = character.calc_modifier(self.dexterity)
         self.speed = 25

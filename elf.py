@@ -2,8 +2,8 @@ import character
 
 class Elf(character.Character):
 
-    def __init__(self, name):
-        super().__init__(name)
+    def __init__(self, name, race):
+        super().__init__(name, race)
         self.dexterity = character.calc_modifier(self.dexterity)
         self.speed = 30
         self.proficiencies.update({'Keen Senses':"You have proficiency "+\

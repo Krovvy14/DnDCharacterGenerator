@@ -10,8 +10,8 @@ languages = ["Dwarvish", "Elvish", "Giant",
              "Sylvan", "Undercommon"]
 
 class Human(character.Character):
-    def __init__(self, name):
-        super().__init__(name)
+    def __init__(self, name, race):
+        super().__init__(name, race)
         self.strength = self.strength + 1
         self.strength_modifier = character.calc_modifier(self.strength)
         self.dexterity = self.dexterity + 1

@@ -7,8 +7,8 @@ class Dragonborn(character.Character):
                          "Copper", "Gold", "Green", "Red",
                          "Silver", "White"]
 
-    def __init__(self, name):
-        super().__init__(name)
+    def __init__(self, name, race):
+        super().__init__(name, race)
         self.strength = self.strength + 2
         self.strength_modifier = character.calc_modifier(self.strength)
         self.charisma = self.charisma + 1
