@@ -87,6 +87,7 @@ class Character:
         print("Hi, I'm {}. I am a {} {}".format(self.name,
                                                 self.race,
                                                 self.character_class))
+        print("Alignment:{}".format(self.alignment))
         print("\tStrength:{}".format(self.strength))
         print("\tstrengh_modifier:{}".format(self.strength_modifier))
         print("\tDexterity:{}".format(self.dexterity))

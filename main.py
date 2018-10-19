@@ -3,6 +3,10 @@ import character
 import random
 import dwarf
 import elf
+import halfling
+import human
+import dragonborn
+
 
 '''
 barbarian_weights = 
@@ -29,3 +33,12 @@ if __name__ == "__main__":
 
     elf = elf.Elf("Jakarta")
     elf.whoami()
+
+    halfling = halfling.Halfling("Mags")
+    halfling.whoami()
+
+    human = human.Human("Colin")
+    human.whoami()
+
+    dragonborn = dragonborn.Dragonborn("John")
+    dragonborn.whoami()
