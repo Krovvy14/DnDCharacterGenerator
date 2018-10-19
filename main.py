@@ -2,6 +2,7 @@
 import character
 import random
 import dwarf
+import elf
 
 '''
 barbarian_weights = 
@@ -20,13 +21,11 @@ wizard_weights =
 if __name__ == "__main__":
 #    character_race = random.choice(races)
 #    character_class = random.choice(classes)  
-    test = character.Character("Kyle")
+    test = character.Character("Kelly")
     test.whoami()
-    print(test.constitution)
-
-
-    test2 = character.Character("Kelly")
-    test2.whoami()
 
     dwarf = dwarf.Dwarf("Bruenor")
     dwarf.whoami()
+
+    elf = elf.Elf("Jakarta")
+    elf.whoami()
