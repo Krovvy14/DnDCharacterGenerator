@@ -2,17 +2,58 @@
 import random
 
 
+
+
 def calc_modifier(score):
     return int((score - 10)/2)
 
 class Character:
+    alignments = ["LG", "LN", "LE", "CG", "CN", "CE", "NG", "TN", "NE"]
+    classes = ["Barbarian", 
+               "Bard",
+               "Cleric",
+               "Druid",
+               "Fighter",
+               "Monk",
+               "Paladin",
+               "Ranger",
+               "Rogue",
+               "Sorcerer",
+               "Warlock",
+               "Wizard"]
+    races = ["Dwarf",
+             "Elf",
+             "Halfling",
+             "Human",
+             "Dragonborn",
+             "Gnome",
+             "Half-Elf",
+             "Half-Orc",
+             "Tiefling"]
+    name = ""
+    character_class = ""
+    race = ""
+    alignment = ""
     ability_score = [15, 14, 13, 12, 10, 8]
+    strength = 0
+    dexterity = 0
+    constitution = 0
+    intelligence = 0
+    wisdom = 0
+    charisma = 0
+    proficincies = []
+    saving_throws  = []
+    proficiency_bonus = 2
+    armor_class = 0
+    hit_points = 0
 
-    def __init__(self, name, character_class):
+    def __init__(self, name):
         init_scores = random.sample(self.ability_score, len(self.ability_score))
 
-        self.character_class = character_class
         self.name = name
+        self.character_class = random.choice(Character.classes) 
+        self.race = random.choice(Character.races)
+        self.alignment = random.choice(Character.alignments) 
         self.strength = init_scores[0]
         self.strength_modifier = calc_modifier(self.strength)
         self.dexterity = init_scores[1]
@@ -25,6 +66,8 @@ class Character:
         self.charisma_modifier = calc_modifier(self.charisma)
         self.intelligence = init_scores[5]
         self.intelligence_modifier = calc_modifier(self.intelligence)
+        self.proficiencies = []
+        self.proficiency_bonus = 2
     
     def whoami(self):
         print("Hi, I'm {} and my class is {}".format(self.name, self.character_class))
