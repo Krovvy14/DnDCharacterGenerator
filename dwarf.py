@@ -2,6 +2,7 @@ import character
 import random
 
 class Dwarf(character.Character):
+
     def __init__(self, name, race):
         super().__init__(name, race)
         self.constitution = self.constitution + 2
@@ -28,3 +29,22 @@ class Dwarf(character.Character):
                 "to the origin of stonework, you are considered "+\
                 "proficient in the History skill and add double your "+\
                 "proficiency bonus to the check."})
+
+class HillDwarf(Dwarf):
+
+    def __init__(self, name, race):
+        super().__init__(name, race)
+        self.wisdom = self.wisdom + 1
+        self.wisdom_modifier = character.calc_modifier(self.wisdom)
+        self.hit_points = self.hit_points + 1
+        self.proficiencies.update({'Dwarven Toughness':"Your hit point "+\
+                "maximum increases by 1, and it increases by 1 every "+\
+                "time you gain a level"})
+
+class MountainDwarf(Dwarf):
+    def __init__(self, name, race):
+        super().__init__(name, race)
+        self.strength = self.strength + 2
+        self.strength_modifier = character.calc_modifier(self.strength)
+        self.proficiencies.update({'Dwarven Armor Training': "You have "+\
+                "proficiency with light and medium armor"})

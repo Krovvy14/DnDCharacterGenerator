@@ -51,10 +51,15 @@ wizard_weights =
 if __name__ == "__main__":
     character_race = random.choice(races)
 #    character_class = random.choice(classes)  
-
+    character = None 
     print("character_race: {}".format(character_race))
     if character_race is 'Dwarf':
-        character = dwarf.Dwarf("Bruenor", character_race)
+        sub_races = ["Hill Dwarf", "Mountain Dwarf"]
+        sub_race = random.choice(sub_races)
+        if sub_race is "Hill Dwarf":
+            character = dwarf.HillDwarf("Bruenor", sub_race)
+        else:
+            character = dwarf.MountainDwarf("Bruenor", sub_race)
     elif character_race is 'Elf':    
         character = elf.Elf("Jakarta", character_race)
     elif character_race is 'Halfling':
