@@ -53,10 +53,11 @@ if __name__ == "__main__":
     character = None 
     for race in races:
         #character_race = race
-        character_race = "Dwarf"
+        character_race = "Gnome"
     #    character_class = random.choice(classes)  
 
         print("character_race: {}".format(character_race))
+        '''
         if character_race is 'Dwarf':
             sub_races = ["Hill Dwarf", "Mountain Dwarf"]
             sub_race = random.choice(sub_races)
@@ -64,17 +65,34 @@ if __name__ == "__main__":
                 character = dwarf.HillDwarf("Bruenor", sub_race)
             else:
                 character = dwarf.MountainDwarf("Bruenor", sub_race)
-        '''
         elif character_race is 'Elf':    
-            character = elf.Elf("Jakarta", character_race)
+            sub_races = ['High Elf', 'Drow']
+            sub_race = random.choice(sub_races)
+            if sub_race is 'High Elf':
+                character = elf.HighElf("Savannah", sub_race)
+            else:
+                character = elf.Drow("Jakarta", sub_race)
         elif character_race is 'Halfling':
-            character = halfling.Halfling("Mags", character_race)
+            sub_races = ['Lightfoot', 'Stout']
+            sub_race = random.choice(sub_races)
+            if sub_race is 'Lightfoot':
+                character = halfling.Lightfoot("Mags", sub_race)
+            else:
+                character = halfling.Stout("Mags", sub_race)
         elif character_race is 'Human':
             character = human.Human("Colin", character_race)
         elif character_race is 'Dragonborn':
             character = dragonborn.Dragonborn("John", character_race)
-        elif character_race is 'Gnome':
-            character = gnome.Gnome("Frodo", character_race)
+        '''
+        #elif character_race is 'Gnome':
+        if character_race is 'Gnome':
+            sub_races = ['Forest Gnome', 'Rock Gnome']
+            sub_race = random.choice(sub_races)
+            if sub_race is 'Forest Gnome':
+                character = gnome.ForestGnome("Frodo", sub_race)
+            else:
+                character = gnome.RockGnome("Frodo", sub_race)
+        '''
         elif character_race is 'Half-Elf':
             character = halfelf.HalfElf("Zachary", character_race)
         elif character_race is 'Half-Orc':

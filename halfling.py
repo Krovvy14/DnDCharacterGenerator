@@ -17,3 +17,25 @@ class Halfling(character.Character):
                 "larger than yours"})
         self.languages.append("Common")
         self.languages.append("Halfling")
+
+class Lightfoot(Halfling):
+
+    def __init__(self, name, race):
+        super().__init__(name, race)
+        self.charisma = self.charisma + 1
+        self.charisma_modifier = character.calc_modifier(self.charisma)
+        self.proficiencies.update({'Naturally Stealthy': "You can attempt "+\
+                "to hide even when you are obscured only by a creature "+\
+                "that is only one size larger than you."})
+
+
+class Stout(Halfling):
+
+    def __init__(self, name, race):
+        super().__init__(name, race)
+        self.constitution = self.constitution + 1
+        self.constitution_modifier = character.calc_modifier(self.constitution)
+        self.proficiencies.update({'Stout Resilience':"You have advantage "+\
+                "one throws agains poison, and you have resistance against "+\
+                "poison damage"})
+
