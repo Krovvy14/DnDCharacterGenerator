@@ -5,9 +5,18 @@ import random
 def calc_modifier(score):
     return int((score - 10)/2)
 
+#TODO: Fix how you do weapons, armor, etc proficiencies
+# I don't like having one dict to manage all proficincies
+# look at doing a dict for each with the weapon:stats as k:v pair
 class Character:
     ability_score = [15, 14, 13, 12, 10, 8]
     alignments = ["LG", "LN", "LE", "CG", "CN", "CE", "NG", "TN", "NE"]
+    character_skills = ['Acrobatics', 'Animal Handling', 'Arcana',
+                        'Athletics', 'Deception', 'History',
+                        'Insight', 'Intimidation', 'Medicine',
+                        'Nature', 'Perception', 'Performance',
+                        'Persuasion', 'Religion', 'Sleight of Hand',
+                        'Stealth', 'Survival']
 
     def __init__(self, name, race, character_class):
         '''
@@ -112,7 +121,21 @@ class Character:
                             "Str, you gain a bonus to the dmg roll. You have "+\
                             "resistance to bludgeoning, piercing, and slashing "+\
                             "damage."})
+        self.class_features.update({'Rages':2})
+        self.class_features.update({'Rage Dmg': 2})
         self.class_features.update({'Unarmored Defense': "While not wearing any "+\
                             "armor, your AC equals 10+your Dex modifier+your "+\
                             "Con modifier. You can use a shield and still gain "+\
                             "this benefit."})
+
+    def bard(self):
+        self.hit_points = self.hit_points + 8 + self.constitution_modifier
+        self.proficiencies.update({'Light Armor':"Light armor"}) 
+        self.proficiencies.update({'Simple Weapons': "Simple Weapons"})
+        self.proficiencies.update({'Hand crossbows': "Hand crossbows"})
+        self.proficiencies.update({'Longswords': "Longswords"})
+        self.proficiencies.update({'Rapiers': "Rapiers"})
+        self.proficiencies.update({'Shortswords': "Shortswords"})
+        self.proficiencies.update({'Tools': "Three musical instruments of "+\
+                                   "yours choice"})
+        self.skills.append(random.sample(self.character_skills, 3))
