@@ -3,8 +3,8 @@ import random
 
 class Dwarf(character.Character):
 
-    def __init__(self, name, race):
-        super().__init__(name, race)
+    def __init__(self, name, race, character_class):
+        super().__init__(name, race, character_class)
         self.constitution = self.constitution + 2
         self.constitution_modifier = character.calc_modifier(self.constitution)
         self.speed = 25
@@ -32,8 +32,8 @@ class Dwarf(character.Character):
 
 class HillDwarf(Dwarf):
 
-    def __init__(self, name, race):
-        super().__init__(name, race)
+    def __init__(self, name, race, character_class):
+        super().__init__(name, race, character_class)
         self.wisdom = self.wisdom + 1
         self.wisdom_modifier = character.calc_modifier(self.wisdom)
         self.hit_points = self.hit_points + 1
@@ -42,8 +42,8 @@ class HillDwarf(Dwarf):
                 "time you gain a level"})
 
 class MountainDwarf(Dwarf):
-    def __init__(self, name, race):
-        super().__init__(name, race)
+    def __init__(self, name, race, character_class):
+        super().__init__(name, race, character_class)
         self.strength = self.strength + 2
         self.strength_modifier = character.calc_modifier(self.strength)
         self.proficiencies.update({'Dwarven Armor Training': "You have "+\

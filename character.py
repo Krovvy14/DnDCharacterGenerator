@@ -8,29 +8,8 @@ def calc_modifier(score):
 class Character:
     ability_score = [15, 14, 13, 12, 10, 8]
     alignments = ["LG", "LN", "LE", "CG", "CN", "CE", "NG", "TN", "NE"]
-    classes = ["Barbarian", 
-               "Bard",
-               "Cleric",
-               "Druid",
-               "Fighter",
-               "Monk",
-               "Paladin",
-               "Ranger",
-               "Rogue",
-               "Sorcerer",
-               "Warlock",
-               "Wizard"]
-    races = ["Dwarf",
-             "Elf",
-             "Halfling",
-             "Human",
-             "Dragonborn",
-             "Gnome",
-             "Half-Elf",
-             "Half-Orc",
-             "Tiefling"]
 
-    def __init__(self, name, race):
+    def __init__(self, name, race, character_class):
         '''
         //////
         //Character Archetype
@@ -55,11 +34,10 @@ class Character:
         languages = []
         '''
 
-
         init_scores = random.sample(self.ability_score,
                                     len(self.ability_score))
         self.name = name
-        self.character_class = random.choice(Character.classes) 
+        self.character_class = character_class
         self.race = race
         self.alignment = random.choice(Character.alignments) 
         self.strength = init_scores[0]
@@ -82,6 +60,7 @@ class Character:
         self.speed = 0
         self.proficiencies = {}
         self.languages = []
+        self.class_features = {}
     
     def whoami(self):
         print("Hi, I'm {}. I am a {} {}".format(self.name,
@@ -108,5 +87,32 @@ class Character:
         print("\tspeed:{}".format(self.speed))
         print("\tProficiencies: {}".format(self.proficiencies))
         print("\tLanguages: {}".format(self.languages))
+        print("\tClass Features: {}".format(self.class_features))
         
 
+    def barbarian(self):
+        skills = ['Animal Handling', 'Athletics', 'Intimidation',
+                  'Nature', 'Perception', 'Survival']
+
+        self.hit_points = self.hit_points + 12 + self.constitution_modifier
+        self.skills.append(random.sample(skills, 2))
+        self.saving_throws.append('Strength')
+        self.saving_throws.append('Constitution')
+        self.proficiencies.update({'Light Armor':"Light armor"}) 
+        self.proficiencies.update({'Medium Armor':"Medium armor"}) 
+        self.proficiencies.update({'Shields':"Shields"}) 
+        self.proficiencies.update({'Simple Weapons':"Simple Weapons"}) 
+        self.proficiencies.update({'Martial Weapons':"Martial Weapons"}) 
+        self.class_features.update({'Rage': "In battle you fight with primal "+\
+                            "ferocity. On your turn you can enter a rage as "+\
+                            "a bonus action. While raging you gain the "+\
+                            "following benefits if you aren't wearing heavy "+\
+                            "You have advantage on Str checks and Str saving "+\
+                            "throws. When you make a melee weapon attack using "+\
+                            "Str, you gain a bonus to the dmg roll. You have "+\
+                            "resistance to bludgeoning, piercing, and slashing "+\
+                            "damage."})
+        self.class_features.update({'Unarmored Defense': "While not wearing any "+\
+                            "armor, your AC equals 10+your Dex modifier+your "+\
+                            "Con modifier. You can use a shield and still gain "+\
+                            "this benefit."})
